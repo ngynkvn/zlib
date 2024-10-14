@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
     });
     lib.linkLibC();
     lib.addCSourceFiles(.{
-        .root = upstream.path(""),
+        .root = upstream.path("."),
         .files = &.{
             "adler32.c",
             "crc32.c",
@@ -34,7 +34,7 @@ pub fn build(b: *std.Build) void {
             "-DZ_HAVE_UNISTD_H",
         },
     });
-    lib.installHeadersDirectory(upstream.path(""), "", .{
+    lib.installHeadersDirectory(upstream.path("."), "", .{
         .include_extensions = &.{
             "zconf.h",
             "zlib.h",
